@@ -25,30 +25,42 @@ namespace ClassTask5
 
         public void AddEmployee(Employee employee)
         {
-            count++;
+
             if (count <= EmployeeLimit)
             {
-                for (int i = 0; i < EmployeeLimit; i++)
-                {
-                    employees[i] = employee;
-                }
+
+                employees[count] = employee;
+                count++;
             }
             else
             {
                 throw new CapacityLimitException("You can not add more Employee");
             }
 
+        }
+
+        public void UpdateDepartment(string newName,int employeeLimit)
+        {
+          
+            
+                employees[employeeLimit].Name = newName;
+            
 
         }
+
         public Employee this[int index]
         {
             get
             {
-
+                return employees[index];
             }
             set
             {
-                if(value==)
+                if (index < 0 && index > EmployeeLimit)
+                {
+                    Console.WriteLine("duzgun reqem daxil edin!");
+                }
+
             }
         }
     }
